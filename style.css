@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.page-wrap {
+    display: flex;
+}
+
+.menu {
+    background-color: blue;
+    width: 420px;
+    height: 52px;
+}
+
+.contact-list {
+    background-color: yellow;
+    width: 420px;
+    height: calc(100vh - 52px);
+}
+
+.header {
+    background-color: red;
+    width: calc(100vw - 420px);
+    height: 52px;
+}
+
+.chat {
+    background-color: green;
+    width: calc(100vw - 420px);
+    height: calc(100vh - 52px);
+}
