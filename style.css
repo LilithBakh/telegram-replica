@@ -9,25 +9,110 @@ body {
 }
 
 .menu {
-    background-color: blue;
-    width: 420px;
-    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    width: 388px;
+    height: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
+
+#burger-menu {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    color: #707579;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#burger-menu:hover {
+    background-color: #F4F4F4;
+}
+
+.search-bar {
+    display: flex;
+    border-radius: 20px;
+    border: solid 1px #C4C9CC;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: text;
+}
+
+#search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: #A9ACAF;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#search-input {
+    padding: 0px;
+    width: 240px;
+    height: 40px;
+    border-radius: none;
+    border: none;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: #A9ACAF;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#search-clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: #FFFFFF;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+
+
+
 
 .contact-list {
     background-color: yellow;
-    width: 420px;
-    height: calc(100vh - 52px);
+    width: 388px;
+    height: calc(100vh - 56px);
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow:auto;
 }
+
+.contact-list::-webkit-scrollbar {
+    display: none;
+  }
 
 .header {
     background-color: red;
     width: calc(100vw - 420px);
-    height: 52px;
+    height: 56px;
 }
 
 .chat {
     background-color: green;
     width: calc(100vw - 420px);
-    height: calc(100vh - 52px);
+    height: calc(100vh - 56px);
+    overflow:auto;
 }
