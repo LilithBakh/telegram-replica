@@ -86,15 +86,74 @@ body {
 }
 
 .contact-list {
-    background-color: yellow;
-    width: 388px;
+    background-color: #FFFFFF;
+    width: 420px;
     height: calc(100vh - 56px);
-    padding: 0 16px 0 16px;
-    overflow:auto;
+    overflow: hidden;
+}
+
+.contact-list:hover {
+    overflow-y: scroll;
 }
 
 .contact-list::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+
+.contact-list::-webkit-scrollbar-track {
+    background: none;
+}
+  
+.contact-list::-webkit-scrollbar-thumb {
+    border-radius: 40px;
+    background-color: #CCCCCC;
+    border: 3px solid #FFFFFF;
+}
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 388px;
+    height: 72px;
+    padding: 0 8px 0 8px;
+    margin: 0 8px 0 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contact-box:hover {
+    background-color: #F4F4F4;
+}
+
+.contact-info-wrap {
+    width: 320px;
+}
+
+.name-time-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+#contact-name-list {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#last-time{
+    color: #707579;
+    font-size: 12px;
+}
+
+#last-message {
+    font-size: 16px;
+    color: #707579;
+}
+
+#contact-picture-list {
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
 }
 
 .message-body {
