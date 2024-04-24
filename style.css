@@ -221,8 +221,10 @@ body {
 }
 
 .chat {
-    background-color: green;
+    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(129, 177, 138, 1), rgba(210, 215, 141, 1), rgba(210, 215, 141, 1), rgba(129, 177, 138, 1));
+    background-size: cover;
     width: calc(100vw - 420px);
     height: calc(100vh - 56px);
     overflow:auto;
 }
+
