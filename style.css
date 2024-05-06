@@ -98,7 +98,7 @@ body {
 }
 
 .contact-list::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 .contact-list::-webkit-scrollbar-track {
@@ -108,7 +108,7 @@ body {
 .contact-list::-webkit-scrollbar-thumb {
     border-radius: 40px;
     background-color: #CCCCCC;
-    border: 3px solid #FFFFFF;
+    border: solid #FFFFFF;
 }
 
 .contact-box {
@@ -127,6 +127,15 @@ body {
     background-color: #F4F4F4;
 }
 
+.contact-box-selected {
+    background-color: #3390EC;
+    color: #FFFFFF;
+}
+
+.contact-box-selected:hover {
+    background-color: #3390EC;
+}
+
 .contact-info-wrap {
     width: 320px;
 }
@@ -136,28 +145,38 @@ body {
     justify-content: space-between;
 }
 
-#contact-name-list {
+.contact-name-list {
     font-size: 16px;
     font-weight: 500;
 }
 
-#last-time{
+.last-time{
     color: #707579;
     font-size: 12px;
 }
 
-#last-message {
+.last-time-selected {
+    color: #FFFFFF;
+}
+
+.last-message {
     font-size: 16px;
     color: #707579;
 }
 
-#contact-picture-list {
+.last-message-selected {
+    color: #FFFFFF;
+}
+
+.contact-picture-list {
     height: 54px;
     width: 54px;
     border-radius: 50%;
 }
 
 .message-body {
+    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(210, 215, 141, 1), rgba(129, 177, 138, 1),  rgba(210, 215, 141, 1));
+    background-size: cover;
     outline: 2px solid #DFE1E5;
 }
 
@@ -170,6 +189,7 @@ body {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .user-wrap {
@@ -181,20 +201,20 @@ body {
     padding: 0 0 0 18px;
 }
 
-#contact-picture-header {
+.contact-picture-header {
     width: 42px;
     height: 42px;
     border-radius: 50%;
 }
 
-#contact-name-header {
+.contact-name-header {
     display: block;
     font-size: 16px;
     font-weight: 500;
     color: #000000;
 }
 
-#contact-status {
+.contact-status {
     font-size: 14px;
     color: #707579;
 }
@@ -222,8 +242,6 @@ body {
 }
 
 .chat-wrap {
-    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(129, 177, 138, 1), rgba(210, 215, 141, 1), rgba(210, 215, 141, 1), rgba(129, 177, 138, 1));
-    background-size: cover;
     width: calc(100vw - 420px);
     height: calc(100vh - 56px);
 }
@@ -231,7 +249,7 @@ body {
 .chat-messages {
     overflow:auto;
     height: calc(100vh - 56px - 74px);
-    background-color: aquamarine;
+    visibility: hidden;
 }
 
 .chat-input-container {
@@ -239,6 +257,7 @@ body {
     justify-content: center;
     height: 70px;
     padding-top: 4px;
+    visibility: hidden;
 }
 
 .message-input-wrap {
