@@ -12,16 +12,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
 
-            var contactPictureList = document.querySelector('.contact-picture-list')
+            box.classList.add('contact-box-selected');
+            var contactPictureList = document.querySelector('.contact-box-selected').querySelector('.contact-picture-list');
             var contactPictureHeader = document.querySelector('.contact-picture-header');
 
+            var contactNameList = document.querySelector('.contact-box-selected').querySelector('.contact-name-list');
+            var contactNameHeader = document.querySelector('.contact-name-header');
 
-
-
-            box.classList.add('contact-box-selected');
             var spans = box.querySelectorAll('span');
             spans.forEach(function (span) {
                 contactPictureHeader.src = contactPictureList.src;
+                contactNameHeader.innerHTML = contactNameList.innerHTML;
                 span.classList.add('last-time-selected', 'last-message-selected', 'contact-name-list-selected');
             });
 
