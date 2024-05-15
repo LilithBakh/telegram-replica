@@ -36,4 +36,44 @@ document.addEventListener('DOMContentLoaded', function () {
             selectedBox = box;
         });
     });
+
+    var searchInput = document.getElementById('search-input');
+    var searchBar = document.querySelector('.search-bar');
+    var searchIcon = document.getElementById('search-icon');
+    var searchClear = document.querySelector('.search-clear-focus'); 
+
+    function updateClearIcon() {
+        if (searchInput.value !== '') {
+            searchClear.style.visibility = 'visible';
+            if (document.activeElement === searchInput) {
+                searchClear.className = 'search-clear-focus';
+            } else {
+                searchClear.className = 'search-clear';
+            }
+        } else {
+            searchClear.style.visibility = 'hidden';
+        }
+    }
+    function clearInput() {
+        searchInput.value = '';
+        searchInput.focus(); 
+        updateClearIcon();
+    }
+    searchInput.addEventListener('focus', function() {
+        searchBar.style.borderColor = '#3390EC';
+        searchBar.style.borderWidth = "2px";
+        searchIcon.style.color = '#3390EC';
+        updateClearIcon();
+    });
+
+    searchInput.addEventListener('input', updateClearIcon);
+
+    searchInput.addEventListener('blur', function() {
+        searchBar.style.borderColor = '';
+        searchBar.style.borderWidth = '';
+        searchIcon.style.color = '';
+        updateClearIcon();
+    });
+
+    searchClear.addEventListener('click', clearInput);
 });
