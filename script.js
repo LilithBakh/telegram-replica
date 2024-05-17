@@ -54,11 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             searchClear.style.visibility = 'hidden';
         }
     }
-    function clearInput() {
-        searchInput.value = '';
-        searchInput.focus(); 
-        updateClearIcon();
-    }
+
     searchInput.addEventListener('focus', function() {
         searchBar.style.borderColor = '#3390EC';
         searchBar.style.borderWidth = "2px";
@@ -73,6 +69,23 @@ document.addEventListener('DOMContentLoaded', function () {
         searchBar.style.borderWidth = '';
         searchIcon.style.color = '';
         updateClearIcon();
+    });
+
+    function clearInput(event) {
+        event.preventDefault();
+
+        const wasFocused = (document.activeElement === searchInput);
+        
+        searchInput.value = '';
+        updateClearIcon();
+
+        if (wasFocused) {
+            searchInput.focus();
+        }
+    }
+
+    searchClear.addEventListener('mousedown', function(event) {
+        event.preventDefault();
     });
 
     searchClear.addEventListener('click', clearInput);
