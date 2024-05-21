@@ -62,7 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
         updateClearIcon();
     });
 
-    searchInput.addEventListener('input', updateClearIcon);
+    searchInput.addEventListener('input', function() {
+        searchInList();
+        updateClearIcon();
+    });
 
     searchInput.addEventListener('blur', function() {
         searchBar.style.borderColor = '';
@@ -75,13 +78,14 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
 
         const wasFocused = (document.activeElement === searchInput);
-        
+
         searchInput.value = '';
         updateClearIcon();
 
         if (wasFocused) {
             searchInput.focus();
         }
+        searchInList();
     }
 
     searchClear.addEventListener('mousedown', function(event) {
@@ -89,4 +93,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     searchClear.addEventListener('click', clearInput);
+
+    function searchInList() {
+        var searchValue = document.getElementById('search-input').value.toLowerCase();
+        var contacts = document.querySelectorAll('.contact-box');
+
+        contacts.forEach(function(contact) {
+            var contactName = contact.querySelector('.contact-name-list').textContent.toLowerCase();
+            if (contactName.indexOf(searchValue) !== 0) {
+                contact.classList.add('contact-box-hide');
+            } else {
+                contact.classList.remove('contact-box-hide');
+            }
+        });
+    }
 });

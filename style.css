@@ -150,6 +150,10 @@ body {
     background-color: #F4F4F4;
 }
 
+.contact-box-hide {
+    display: none;
+}
+
 .contact-box-selected {
     background-color: #3390EC;
     color: #FFFFFF;
