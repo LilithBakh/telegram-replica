@@ -28,10 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var header = document.querySelector('.header');
             var chatInputContainer = document.querySelector('.chat-input-container');
+            var chatMessages = document.querySelector('.chat-messages');
         
             if (header) {
                 header.style.visibility = 'visible';
                 chatInputContainer.style.visibility = 'visible';
+                chatMessages.style.visibility = 'visible';
             }
             selectedBox = box;
         });

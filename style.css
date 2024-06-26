@@ -274,9 +274,40 @@ body {
 }
 
 .chat-messages {
+    position: relative;
+    display: flex;
     overflow:auto;
     height: calc(100vh - 56px - 74px);
     visibility: hidden;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4px;
+}
+
+.messages-wrap {
+    width: 616px;
+}
+
+#auto-scroll {
+    width: 54px;
+    height: 54px;
+    background-color: #F4F4F4;
+    color: #707579;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-left: 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+.contact-bubble {
+    padding: 8px 4px 8px 4px;
+    background-color: #FFFFFF;
+    border-radius: 15px 15px 15px 0;
+    position: absolute;
+    bottom: 0;
 }
 
 .chat-input-container {
