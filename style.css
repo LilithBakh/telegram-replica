@@ -202,7 +202,7 @@ body {
 }
 
 .message-body {
-    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(210, 215, 141, 1), rgba(129, 177, 138, 1),  rgba(210, 215, 141, 1));
+    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(210, 215, 141, 1), rgba(129, 177, 138, 1),  rgba(210, 216, 182, 1));
     background-size: cover;
     outline: 2px solid #DFE1E5;
 }
@@ -277,7 +277,7 @@ body {
     position: relative;
     display: flex;
     overflow:auto;
-    height: calc(100vh - 56px - 74px);
+    height: calc(100vh - 134px);
     visibility: hidden;
     max-width: 680px;
     margin-left: auto;
@@ -290,6 +290,7 @@ body {
 }
 
 #auto-scroll {
+    visibility: hidden;
     width: 54px;
     height: 54px;
     background-color: #F4F4F4;
@@ -303,7 +304,7 @@ body {
 }
 
 .contact-bubble {
-    padding: 8px 4px 8px 4px;
+    padding: 4px 8px 4px 8px;
     background-color: #FFFFFF;
     border-radius: 15px 15px 15px 0;
     position: absolute;
@@ -350,7 +351,6 @@ body {
     height: 21px;
     padding: 8px 0 8px 0;
     margin: 0 9px 0 9px;
-    border-radius: none;
     border: none;
     font-size: 16px;
     caret-color: #3390EC;
