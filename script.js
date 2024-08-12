@@ -1,34 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var contactBoxes = document.querySelectorAll('.contact-box');
-    var selectedBox = null;
+    const contactBoxes = document.querySelectorAll('.contact-box');
+    let selectedBox = null;
 
     contactBoxes.forEach(function (box) {
         box.addEventListener('click', function () {
             if (selectedBox !== null) {
                 selectedBox.classList.remove('contact-box-selected');
-                var spans = selectedBox.querySelectorAll('span');
+                const spans = selectedBox.querySelectorAll('span');
                 spans.forEach(function (span) {
                     span.classList.remove('last-time-selected', 'last-message-selected', 'contact-name-list-selected');
                 });
             }
 
             box.classList.add('contact-box-selected');
-            var contactPictureList = document.querySelector('.contact-box-selected').querySelector('.contact-picture-list');
-            var contactPictureHeader = document.querySelector('.contact-picture-header');
+            const contactPictureList = document.querySelector('.contact-box-selected').querySelector('.contact-picture-list');
+            const contactPictureHeader = document.querySelector('.contact-picture-header');
 
-            var contactNameList = document.querySelector('.contact-box-selected').querySelector('.contact-name-list');
-            var contactNameHeader = document.querySelector('.contact-name-header');
+            const contactNameList = document.querySelector('.contact-box-selected').querySelector('.contact-name-list');
+            const contactNameHeader = document.querySelector('.contact-name-header');
 
-            var spans = box.querySelectorAll('span');
+            const spans = box.querySelectorAll('span');
             spans.forEach(function (span) {
                 contactPictureHeader.src = contactPictureList.src;
                 contactNameHeader.innerHTML = contactNameList.innerHTML;
                 span.classList.add('last-time-selected', 'last-message-selected', 'contact-name-list-selected');
             });
 
-            var header = document.querySelector('.header');
-            var chatInputContainer = document.querySelector('.chat-input-container');
-            var chatMessages = document.querySelector('.chat-messages');
+            const header = document.querySelector('.header');
+            const chatInputContainer = document.querySelector('.chat-input-container');
+            const chatMessages = document.querySelector('.chat-messages');
         
             if (header) {
                 header.style.visibility = 'visible';
@@ -36,17 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 chatMessages.style.visibility = 'visible';
             }
 
-            loadMessages(contactNameList.textContent); // Added this line
+            loadMessages(contactNameList.textContent);
             scrollToBottom();
 
             selectedBox = box;
         });
     });
 
-    var searchInput = document.getElementById('search-input');
-    var searchBar = document.querySelector('.search-bar');
-    var searchIcon = document.getElementById('search-icon');
-    var searchClear = document.querySelector('.search-clear-focus'); 
+    const searchInput = document.getElementById('search-input');
+    const searchBar = document.querySelector('.search-bar');
+    const searchIcon = document.getElementById('search-icon');
+    const searchClear = document.querySelector('.search-clear-focus'); 
 
     function updateClearIcon() {
         if (searchInput.value !== '') {
@@ -101,11 +101,11 @@ document.addEventListener('DOMContentLoaded', function () {
     searchClear.addEventListener('click', clearInput);
 
     function searchInList() {
-        var searchValue = document.getElementById('search-input').value.toLowerCase();
-        var contacts = document.querySelectorAll('.contact-box');
+        const searchValue = document.getElementById('search-input').value.toLowerCase();
+        const contacts = document.querySelectorAll('.contact-box');
 
         contacts.forEach(function(contact) {
-            var contactName = contact.querySelector('.contact-name-list').textContent.toLowerCase();
+            const contactName = contact.querySelector('.contact-name-list').textContent.toLowerCase();
             if (contactName.indexOf(searchValue) !== 0) {
                 contact.classList.add('contact-box-hide');
             } else {
@@ -135,10 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const chatMessages = document.querySelector('.chat-messages');
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-    
-    
 
-    let messages = {
+    const messages = {
         "Max": [
             { sender: "Max", content: "I am dutch", timestamp: "14:06" }
         ],
@@ -200,5 +198,4 @@ document.addEventListener('DOMContentLoaded', function () {
             { sender: "Logan", content: "What is a kilometer?", timestamp: "14:06" }
         ],
     };
-   
 });
