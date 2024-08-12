@@ -374,7 +374,7 @@ body {
    outline: none; 
 }
 
-#voice-message {
+#voice-or-send-message {
     width: 54px;
     height: 54px;
     background-color: #3390EC;
@@ -386,6 +386,6 @@ body {
     cursor: pointer;
 }
 
-#voice-message:hover {
+#voice-or-send-message:hover {
     background-color: #2086EA;
 }

@@ -198,4 +198,15 @@ document.addEventListener('DOMContentLoaded', function () {
             { sender: "Logan", content: "What is a kilometer?", timestamp: "14:06" }
         ],
     };
+
+    const messageInput = document.getElementById('message-input');
+    const sendButtonIcon = document.querySelector('#voice-or-send-message i');
+
+    messageInput.addEventListener('input', function() {
+        if (messageInput.value.trim() === '') {
+            sendButtonIcon.className = 'fa-solid fa-microphone';
+        } else {
+            sendButtonIcon.className = 'fa-solid fa-arrow-right';
+        }
+    });
 });
