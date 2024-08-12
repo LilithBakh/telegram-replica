@@ -35,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 chatInputContainer.style.visibility = 'visible';
                 chatMessages.style.visibility = 'visible';
             }
+
+            loadMessages(contactNameList.textContent); // Added this line
+            scrollToBottom();
+
             selectedBox = box;
         });
     });
@@ -109,4 +113,92 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    function loadMessages(contactName) {
+        const chatMessages = document.querySelector('.chat-messages .messages-wrap');
+        chatMessages.innerHTML = '';
+
+        if (messages[contactName]) {
+            messages[contactName].forEach(msg => {
+                const messageElement = document.createElement('div');
+                messageElement.className = `contact-bubble ${msg.sender === 'me' ? 'sent' : 'received'}`;
+                messageElement.innerHTML = `
+                    <span>${msg.content}</span>
+                    <span class="message-time">${msg.timestamp}</span>
+                `;
+                chatMessages.appendChild(messageElement);
+            });
+        }
+    }
+    
+    function scrollToBottom() {
+        const chatMessages = document.querySelector('.chat-messages');
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    
+    
+
+    let messages = {
+        "Max": [
+            { sender: "Max", content: "I am dutch", timestamp: "14:06" }
+        ],
+        "Sergio": [
+            { sender: "Sergio", content: "Tell  Horner not to fire me", timestamp: "14:06" }
+        ],
+        "Charles": [
+            { sender: "Charles", content: "We can be champions", timestamp: "14:06" }
+        ],
+        "Lando": [
+            { sender: "Lando", content: "Don't buy me  sushi", timestamp: "14:06" }
+        ],
+        "Carlos": [
+            { sender: "Carlos", content: "Let's golf", timestamp: "14:06" }
+        ],
+        "Oscar": [
+            { sender: "Oscar", content: "Hei", timestamp: "14:06" }
+        ],
+        "George": [
+            { sender: "George", content: "I'm a nasty girl", timestamp: "14:06" }
+        ],
+        "Fernando": [
+            { sender: "Fernando", content: "Don't forget to leave space", timestamp: "14:06" }
+        ],
+        "Lewis": [
+            { sender: "Lewis", content: "Hammertime", timestamp: "14:06" }
+        ],
+        "Yuki": [
+            { sender: "Yuki", content: "I miss Pierre", timestamp: "14:06" }
+        ],
+        "Lance": [
+            { sender: "Lance", content: "My dad paid for my seat", timestamp: "14:06" }
+        ],
+        "Nico": [
+            { sender: "Nico", content: "Call me Hulk", timestamp: "14:06" }
+        ],
+        "Daniel": [
+            { sender: "Daniel", content: "KIKIKI", timestamp: "14:06" }
+        ],
+        "Esteban": [
+            { sender: "Esteban", content: "Estie bestie is here", timestamp: "14:06" }
+        ],
+        "Kevin": [
+            { sender: "Kevin", content: "I will kill you", timestamp: "14:06" }
+        ],
+        "Alex": [
+            { sender: "Alex", content: "Sharing is caring", timestamp: "14:06" }
+        ],
+        "Guanyu": [
+            { sender: "Guanyu", content: "Lol", timestamp: "14:06" }
+        ],
+        "Pierre": [
+            { sender: "Pierre", content: "Oui Oui", timestamp: "14:06" }
+        ],
+        "Valtteri": [
+            { sender: "Valtteri", content: "Buy my calendar", timestamp: "14:06" }
+        ],
+        "Logan": [
+            { sender: "Logan", content: "What is a kilometer?", timestamp: "14:06" }
+        ],
+    };
+   
 });

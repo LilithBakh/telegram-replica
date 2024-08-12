@@ -311,6 +311,16 @@ body {
     bottom: 0;
 }
 
+.contact-bubble.sent {
+    background-color: #DCF8C6;
+    align-self: flex-end;
+}
+
+.contact-bubble.received {
+    background-color: #FFFFFF;
+    align-self: flex-start;
+}
+
 .chat-input-container {
     display: flex;
     justify-content: center;
