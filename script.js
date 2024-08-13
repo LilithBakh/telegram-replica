@@ -117,11 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function loadMessages(contactName) {
         const chatMessages = document.querySelector('.chat-messages .messages-wrap');
         chatMessages.innerHTML = '';
-
+    
         if (messages[contactName]) {
             messages[contactName].forEach(msg => {
                 const messageElement = document.createElement('div');
-                messageElement.className = `contact-bubble ${msg.sender === 'me' ? 'sent' : 'received'}`;
+                messageElement.className = `message-bubble ${msg.sender === 'me' ? 'sent' : 'received'}`;
                 messageElement.innerHTML = `
                     <span>${msg.content}</span>
                     <span class="message-time">${msg.timestamp}</span>
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const messages = {
         "Max": [
-            { sender: "Max", content: "I am dutch", timestamp: "14:06" }
+            { sender: "Max", content: "I am dutch", timestamp: "14:06pm" },
         ],
         "Sergio": [
             { sender: "Sergio", content: "Tell  Horner not to fire me", timestamp: "14:06" }
@@ -207,6 +207,23 @@ document.addEventListener('DOMContentLoaded', function () {
             sendButtonIcon.className = 'fa-solid fa-microphone';
         } else {
             sendButtonIcon.className = 'fa-solid fa-arrow-right';
+        }
+    });
+
+    document.querySelector('#voice-or-send-message').addEventListener('click', function() {
+        const messageInput = document.getElementById('message-input');
+        const message = messageInput.value.trim();
+        if (message !== '') {
+            const selectedContact = document.querySelector('.contact-box-selected .contact-name-list').textContent;
+            const newMessage = {
+                sender: 'me',
+                content: message,
+                timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+            };
+            messages[selectedContact].push(newMessage);
+            loadMessages(selectedContact);
+            messageInput.value = '';
+            scrollToBottom();
         }
     });
 });
