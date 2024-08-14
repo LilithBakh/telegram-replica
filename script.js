@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const messageInput = document.getElementById('message-input');
     const sendButtonIcon = document.querySelector('#voice-or-send-message i');
+    const sendButton = document.querySelector('#voice-or-send-message');
 
     function updateSendButtonIcon() {
         if (messageInput.value.trim() === '') {
@@ -219,7 +220,33 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function sendMessage() {
+        const message = messageInput.value.trim();
+        if (message !== '') {
+            const selectedContact = document.querySelector('.contact-box-selected .contact-name-list').textContent;
+            const newMessage = {
+                sender: 'me',
+                content: message,
+                timestamp: getCurrentTime24Hour()
+            };
+            messages[selectedContact].push(newMessage);
+            loadMessages(selectedContact);
+            messageInput.value = '';
+            scrollToBottom();
+            updateSendButtonIcon();
+        }
+    }
+
     messageInput.addEventListener('input', updateSendButtonIcon);
+
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    sendButton.addEventListener('click', sendMessage);
 
     document.querySelector('#voice-or-send-message').addEventListener('click', function() {
         const message = messageInput.value.trim();
