@@ -120,15 +120,24 @@ document.addEventListener('DOMContentLoaded', function () {
     
         if (messages[contactName]) {
             messages[contactName].forEach(msg => {
+                const wrapperElement = document.createElement('div');
+                wrapperElement.className = 'message-bubble-wrap';
+    
                 const messageElement = document.createElement('div');
                 messageElement.className = `message-bubble ${msg.sender === 'me' ? 'sent' : 'received'}`;
                 messageElement.innerHTML = `
                     <span>${msg.content}</span>
                     <span class="message-time">${msg.timestamp}</span>
                 `;
-                chatMessages.appendChild(messageElement);
+    
+                wrapperElement.appendChild(messageElement);
+                chatMessages.appendChild(wrapperElement);
             });
         }
+    }
+    
+    function getCurrentTime24Hour() {
+        return new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'});
     }
     
     function scrollToBottom() {
@@ -138,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const messages = {
         "Max": [
-            { sender: "Max", content: "I am dutch", timestamp: "14:06pm" },
+            { sender: "Max", content: "I am dutch", timestamp: "14:06" },
         ],
         "Sergio": [
             { sender: "Sergio", content: "Tell  Horner not to fire me", timestamp: "14:06" }
@@ -202,28 +211,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const messageInput = document.getElementById('message-input');
     const sendButtonIcon = document.querySelector('#voice-or-send-message i');
 
-    messageInput.addEventListener('input', function() {
+    function updateSendButtonIcon() {
         if (messageInput.value.trim() === '') {
             sendButtonIcon.className = 'fa-solid fa-microphone';
         } else {
             sendButtonIcon.className = 'fa-solid fa-arrow-right';
         }
-    });
+    }
+
+    messageInput.addEventListener('input', updateSendButtonIcon);
 
     document.querySelector('#voice-or-send-message').addEventListener('click', function() {
-        const messageInput = document.getElementById('message-input');
         const message = messageInput.value.trim();
         if (message !== '') {
             const selectedContact = document.querySelector('.contact-box-selected .contact-name-list').textContent;
             const newMessage = {
                 sender: 'me',
                 content: message,
-                timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+                timestamp: getCurrentTime24Hour()
             };
             messages[selectedContact].push(newMessage);
             loadMessages(selectedContact);
             messageInput.value = '';
             scrollToBottom();
+            updateSendButtonIcon();
         }
     });
 });
