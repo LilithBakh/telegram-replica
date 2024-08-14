@@ -202,7 +202,7 @@ body {
 }
 
 .message-body {
-    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(210, 216, 182, 1), rgba(129, 177, 138, 1),  rgba(210, 215, 141, 1));
+    background-image: url("img/chat_background.png"), linear-gradient(135deg, rgba(210, 215, 141, 1), rgba(129, 177, 138, 1),  rgba(210, 216, 182, 1));
     background-size: cover;
     outline: 2px solid #DFE1E5;
 }
