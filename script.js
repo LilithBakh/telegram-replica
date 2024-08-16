@@ -147,65 +147,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const messages = {
         "Max": [
-            { sender: "Max", content: "I am dutch", timestamp: "14:06" },
+            { sender: "Max", content: "Just won another race, no big deal. What’s your excuse for not being as fast today?", timestamp: "14:07" }
         ],
         "Sergio": [
-            { sender: "Sergio", content: "Tell  Horner not to fire me", timestamp: "14:06" }
+            { sender: "Sergio", content: "Just avoided crashing into Max. Again. I deserve a medal for that, don’t you think?", timestamp: "14:07" }
         ],
         "Charles": [
-            { sender: "Charles", content: "We can be champions", timestamp: "14:06" }
+            { sender: "Charles", content: "The car broke down again… but at least I look good in the photo! Anyone up for some piano practice later?", timestamp: "14:07" }
         ],
         "Lando": [
-            { sender: "Lando", content: "Don't buy me  sushi", timestamp: "14:06" }
+            { sender: "Lando", content: "Trying to figure out if I’m faster on track or in Mario Kart. Spoiler: Blue shells suck", timestamp: "14:06" }
         ],
         "Carlos": [
-            { sender: "Carlos", content: "Let's golf", timestamp: "14:06" }
+            { sender: "Carlos", content: "You up for some golf later? I promise I won’t talk about my latest DNF… much", timestamp: "14:07" }
         ],
         "Oscar": [
-            { sender: "Oscar", content: "Hei", timestamp: "14:06" }
+            { sender: "Oscar", content: "Still figuring out how this whole F1 thing works… Any tips? Also, I might have broken something again", timestamp: "14:07" }
         ],
         "George": [
-            { sender: "George", content: "I'm a nasty girl", timestamp: "14:06" }
+            { sender: "George", content: "Woke up looking flawless today, as usual. Do you ever just stare at yourself in the mirror and think, 'Wow, perfection'?", timestamp: "14:07" }
         ],
         "Fernando": [
-            { sender: "Fernando", content: "Don't forget to leave space", timestamp: "14:06" }
+            { sender: "Fernando", content: "Age is just a number, right? I’m still faster than half these young guns! Also, how’s your day going? Any chances of me winning this time?", timestamp: "14:07" }
         ],
         "Lewis": [
-            { sender: "Lewis", content: "Hammertime", timestamp: "14:06" }
+            { sender: "Lewis", content: "Just finished meditating and walking Roscoe, now let's manifest some good vibes... and a win next Sunday!", timestamp: "14:06" }
         ],
         "Yuki": [
-            { sender: "Yuki", content: "I miss Pierre", timestamp: "14:06" }
+            { sender: "Yuki", content: "Just had the best sushi in my life. You should try it… oh, and I’m totally going to nail this next race! Or at least I hope so…", timestamp: "14:07" }
         ],
         "Lance": [
-            { sender: "Lance", content: "My dad paid for my seat", timestamp: "14:06" }
+            { sender: "Lance", content: "Dad said I could borrow the Aston Martin tonight... should I take it for a spin or save it for the next race?", timestamp: "14:06" }
         ],
         "Nico": [
-            { sender: "Nico", content: "Call me Hulk", timestamp: "14:06" }
+            { sender: "Nico", content: "Still hunting for that podium... it’s out there somewhere, right?", timestamp: "14:06" }
         ],
         "Daniel": [
-            { sender: "Daniel", content: "KIKIKI", timestamp: "14:06" }
+            { sender: "Daniel", content: "Missed the podium, but hey, I'm still the king of the shoey", timestamp: "14:06" }
         ],
         "Esteban": [
-            { sender: "Esteban", content: "Estie bestie is here", timestamp: "14:06" }
+            { sender: "Esteban", content: "Got any tips on how to avoid getting involved in team drama? Asking for a friend", timestamp: "14:07" }
         ],
         "Kevin": [
-            { sender: "Kevin", content: "I will kill you", timestamp: "14:06" }
+            { sender: "Kevin", content: "Haas finally didn’t break down today! Celebrate with me! Also, can we talk about how underrated I am?", timestamp: "14:07" }
         ],
         "Alex": [
-            { sender: "Alex", content: "Sharing is caring", timestamp: "14:06" }
+            { sender: "Alex", content: "Just tried to explain F1 to my cats. They were more interested in the box the helmet came in", timestamp: "14:06" }
         ],
         "Guanyu": [
-            { sender: "Guanyu", content: "Lol", timestamp: "14:06" }
+            { sender: "Guanyu", content: "Learning how to say 'No worries' in more languages. Pretty useful in F1", timestamp: "14:07" }
         ],
         "Pierre": [
-            { sender: "Pierre", content: "Oui Oui", timestamp: "14:06" }
+            { sender: "Pierre", content: "Just dodged another teammate question in the press conference. Can't dodge penalties though", timestamp: "14:06" }
         ],
         "Valtteri": [
-            { sender: "Valtteri", content: "Buy my calendar", timestamp: "14:06" }
+            { sender: "Valtteri", content: "Growing the mullet was a bold move, but at least it's faster than my pit stops", timestamp: "14:06" }
         ],
         "Logan": [
             { sender: "Logan", content: "What is a kilometer?", timestamp: "14:06" }
-        ],
+        ]
+
     };
 
     const messageInput = document.getElementById('message-input');
