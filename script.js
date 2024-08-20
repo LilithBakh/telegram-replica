@@ -265,4 +265,6 @@ document.addEventListener('DOMContentLoaded', function () {
             updateSendButtonIcon();
         }
     });
+
+    const autoScroll = document.querySelector('.auto-scroll')
 });

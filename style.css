@@ -284,6 +284,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-top: 4px;
+    scrollbar-gutter: stable;
 }
 
 .message-body:hover .chat-messages{
@@ -345,8 +346,13 @@ body {
     flex-direction: column-reverse;
 }
 
+.auto-scroll {
+    text-align: right;
+    margin-right: 54px;
+}
+
 #auto-scroll {
-    visibility: hidden;
+    visibility: visible;
     width: 54px;
     height: 54px;
     background-color: #F4F4F4;
@@ -354,9 +360,8 @@ body {
     border: none;
     border-radius: 50%;
     font-size: 20px;
-    margin-left: 10px;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    top:calc(100vh - 74px - 56px);
 }
 
 .chat-input-container {
@@ -420,7 +425,7 @@ body {
     border: none;
     border-radius: 50%;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 4px;
     cursor: pointer;
 }
 
