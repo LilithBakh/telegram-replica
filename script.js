@@ -266,5 +266,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const autoScroll = document.querySelector('.auto-scroll')
+    scrollTo(0, document.body.scrollHeight);
+
+    const autoScrollButton = document.getElementById('auto-scroll');
+    const messageWrap = document.querySelector('.chat-messages');
+
+    autoScrollButton.addEventListener('click', function () {
+        messageWrap.scrollTo({
+            top: messageWrap.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+
+    messageWrap.addEventListener('scroll', function() {
+        const isAtBottom = messageWrap.scrollHeight - messageWrap.clientHeight - messageWrap.scrollTop <= 1;
+        
+        if (messageWrap.scrollTop <= -300 && !isAtBottom) {
+            autoScrollButton.style.visibility = 'visible';
+        } else {
+            autoScrollButton.style.visibility = 'hidden';
+        }
+    });
+
 });
