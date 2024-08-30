@@ -232,9 +232,30 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             messages[selectedContact].push(newMessage);
             loadMessages(selectedContact);
+            updateLastMessageInList(selectedContact, message, newMessage.timestamp);
+            moveToTop(selectedContact);
             messageInput.value = '';
             scrollToBottom();
             updateSendButtonIcon();
+        }
+    }
+
+    function updateLastMessageInList(contactName, message, timestamp) {
+        const contactBox = Array.from(contactBoxes).find(box => box.querySelector('.contact-name-list').textContent === contactName);
+        if (contactBox) {
+            const lastMessageSpan = contactBox.querySelector('.last-message');
+            const lastTimeSpan = contactBox.querySelector('.last-time');
+            lastMessageSpan.textContent = message;
+            lastTimeSpan.textContent = timestamp;
+        }
+    }
+
+    function moveToTop(contactName) {
+        const contactBox = Array.from(contactBoxes).find(box => box.querySelector('.contact-name-list').textContent === contactName);
+        if (contactBox) {
+            const contactList = document.querySelector('.contact-list');
+            contactList.removeChild(contactBox);
+            contactList.insertBefore(contactBox, contactList.firstChild);
         }
     }
 
