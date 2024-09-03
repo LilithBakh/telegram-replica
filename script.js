@@ -237,7 +237,36 @@ document.addEventListener('DOMContentLoaded', function () {
             messageInput.value = '';
             scrollToBottom();
             updateSendButtonIcon();
+
+            setTimeout(() => {
+                updateStatus("online", "#3390EC");
+            }, 1000);
+        
+            setTimeout(() => {
+                updateStatus("...typing", "#3390EC");
+            }, 3000);
+
+            setTimeout(() => {
+                updateStatus("last seen recently", "#707579");
+
+                const autoReply = {
+                    sender: selectedContact,
+                    content: "In practice, can't talk",
+                    timestamp: getCurrentTime24Hour()
+                };
+
+                messages[selectedContact].push(autoReply);
+                loadMessages(selectedContact);
+                updateLastMessageInList(selectedContact, autoReply.content, autoReply.timestamp);
+                scrollToBottom();
+            }, 6000);
         }
+    }
+
+    function updateStatus(status, color) {
+        const statusElement = document.querySelector('.contact-status');
+        statusElement.textContent = status;
+        statusElement.style.color = color;
     }
 
     function updateLastMessageInList(contactName, message, timestamp) {
